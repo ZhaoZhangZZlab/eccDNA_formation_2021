@@ -52,4 +52,4 @@ minimap2 -ax map-ont $genome $name"-"$refName".TE+GFP+NC.txt.fa" -Y -t 16 | samt
 minimap2 -ax map-ont $TE2 $name"-"$refName".TE+GFP+NC.txt.fa" -Y -t 16 | samtools view -bS | samtools sort > $name"-"$refName".TE+GFP+NC.txt.fa_TE.bam";
 python3 /data/zhanglab/Weijia_Su/PythonScrip/TEinsertion_20211117.py -Ta $name"-"$refName".TE+GFP+NC.txt.fa_TE.bam" -Ga $name"-"$refName".TE+GFP+NC.txt.fa_GENOME.bam" -pName $name"-"$refName".TE+GFP+" -TE $TE2
 done
-done
+
