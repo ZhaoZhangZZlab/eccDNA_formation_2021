@@ -21,9 +21,9 @@ reads2="20201024_HMS_embryo_0-6h_gDNA.fastq.chop.fastq"
 HMS="HMS-Beagle.fa"
 Reporter="GFP_seq.fa"
 HMSBeagle_GFP="HMS-Beagle_GPF.fa"
-genome="/data/zhanglab/Weijia_Su/Genomes/Dro/dm6.fa"
+genome="dm6.fa"
 
-AllTE="/data/zhanglab/Weijia_Su/CommonDataSet/TE_full.fa"
+AllTE="TE_full.fa"
 
 for reads in $reads1 $reads2;
 do
@@ -34,9 +34,11 @@ minimap2 -ax map-ont $HMS $reads -Y -t 16 | samtools view -bS -F 4 | samtools fa
 
 ########################################## Mapping TE reads to GFP reporter --> TE+GFP+ reads  ##################################################
 minimap2 -ax map-ont $Reporter $name"-"$refName".sort.fa" -Y -t 16 | samtools view -bS -F 4 | samtools fasta > $name"-"$refName".TE+GFP+.fa"
+
 ########################################## Remove TE+GFP+ reads from the original chr2L locus ##################################################
 minimap2 -ax map-ont "chr2L:6984548-6991487.fa" $name"-"$refName".TE+GFP+.fa" -Y -t 16 | samtools view -bS -f 4 | samtools fasta > $name"-"$refName".TE+GFP+Non2L1.fa";
 minimap2 -ax map-ont "chr2L:6998548-7006507.fa" $name"-"$refName".TE+GFP+Non2L1.fa" -Y -t 16 | samtools view -bS -f 4 | samtools fasta > $name"-"$refName".TE+GFP+Non2L2.fa";
+
 ########################################### Align reads to HMS-Beagle_GFP consensus  ####################################################################################
 minimap2 -ax map-ont $TE2 $name"-"$refName".TE+GFP+Non2L2.fa" -Y -t 16 | samtools view -bS -F 4 | samtools sort > $name"-"$refName".TE+GFP+HMSGFP.bam"
 #
