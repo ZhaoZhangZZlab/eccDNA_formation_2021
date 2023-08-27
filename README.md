@@ -6,7 +6,7 @@ eccDNA pipeline
 
 https://github.com/WeijiaSu/NCDD/
 
-![Example Image](images/Fig1C3_HMS+reporter.pdf)
+![Example Image](image/Fig1C3_HMS+reporter.pdf)
 
 
 TE insertion pipeline
