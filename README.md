@@ -6,7 +6,7 @@ eccDNA pipeline
 
 https://github.com/WeijiaSu/NCDD/
 
-![Example Image](./image/Fig1C3_HMS+reporter.pdf)
+![Reads alignment in circle reference](https://github.com/ZhaoZhangZZlab/eccDNA_formation_2021/tree/main/image)/Fig1C3_HMS+reporter.pdf)
 
 
 TE insertion pipeline
